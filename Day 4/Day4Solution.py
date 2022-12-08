@@ -1,3 +1,4 @@
+# Part 1:
 
 file = "Day 4/Day4Input.txt"
 
@@ -34,13 +35,20 @@ for line in input:
     if len(range_intersection) == 0:
         no_contained_pairs += 1
     if len(range_intersection) > 0:
-        if len(second_set) != len(range_intersection) and len(first_set) != len(range_intersection):
-            partially_contained_pairs += 1
+        #if len(second_set) != len(range_intersection) and len(first_set) != len(range_intersection):
+        partially_contained_pairs += 1
     if (len(second_set) == len(range_intersection)) or (len(first_set) == len(range_intersection)) :
         count_fully_contained_pairs += 1
  
 print()  
-print("No overlap:", no_contained_pairs)         
+print("No overlap:", no_contained_pairs)      
+
+# Part 1 Answer:   
 print("Full overlap:", count_fully_contained_pairs)
+
+# Part 2 Answer:
 print("Partial overlap:", partially_contained_pairs)
 print("Total Number of Lines:", all_lines_count)
+
+
+
