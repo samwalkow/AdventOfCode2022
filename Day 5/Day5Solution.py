@@ -1,4 +1,4 @@
-#file = open("./Day 5/TestDay5Input.txt")
+# file = open("./Day 5/TestDay5Input.txt")
 file = open("./Day 5/Day5Input.txt")
 
 input = file.readlines()
@@ -18,7 +18,6 @@ for line in input:
     crate_key = int()
     for idx, char in enumerate(line):
         if char.isalpha():
-            # print(idx, char,  line.index(char))
             crate_key = list(position_map.values()).index(idx)+1
             crate_map[crate_key] += char
     if len(line.strip()) == 0:
@@ -34,19 +33,18 @@ for line in input:
         num_to_move = int(move_list[0])
         source_stack = int(move_list[1])
         target_stack = int(move_list[2])
-        for number in list(range(1, num_to_move+1)):
-            crates_to_move = crate_map[source_stack][-1]
+        if num_to_move == 1:
+            crates_to_move = crate_map[source_stack][-num_to_move]
             crate_map[source_stack].pop()
-            crate_map[target_stack] += crates_to_move
-            print()
-            for key, value in crate_map.items():                 
-                print(key, value) 
+            print("A single crate to move", crates_to_move)
+        if num_to_move > 1:
+            crates_to_move = crate_map[source_stack][-num_to_move:]
+            del crate_map[source_stack][-num_to_move:]
+            print("Multiple crates to move:", crates_to_move)
+        crate_map[target_stack] += crates_to_move
         
-
 for key, value in crate_map.items():                 
-    print(key, value) 
     top_crates += value[-1]
-
-print()    
+   
 print("List of crates at the top:", top_crates)
    
