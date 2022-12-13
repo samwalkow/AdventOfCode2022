@@ -36,11 +36,9 @@ for line in input:
         if num_to_move == 1:
             crates_to_move = crate_map[source_stack][-num_to_move]
             crate_map[source_stack].pop()
-            print("A single crate to move", crates_to_move)
         if num_to_move > 1:
             crates_to_move = crate_map[source_stack][-num_to_move:]
             del crate_map[source_stack][-num_to_move:]
-            print("Multiple crates to move:", crates_to_move)
         crate_map[target_stack] += crates_to_move
         
 for key, value in crate_map.items():                 
